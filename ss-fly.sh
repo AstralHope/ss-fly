@@ -407,7 +407,7 @@ install() {
                 ./configure --prefix=/usr && make && make install
                 if [ $? -ne 0 ] 
                 then 
-                        echo -e "[${red}错误${plain}] libsodium安装失败!"
+                        echo -e "[${red}错误${plain}] libsodium安装失败!先重启VPS：reboot，之后执行dpkg --configure -a，之后再执行一键脚本。"
                         cleanup
                 exit 1  
                 fi
@@ -448,7 +448,8 @@ install() {
         echo -e "你的密码            ：\033[41;37m ${password} \033[0m"
         echo -e "你的端口            ：\033[41;37m ${port} \033[0m"
         echo -e "你的加密方式        ：\033[41;37m aes-256-cfb \033[0m"
-        echo -e "欢迎访问flyzy小站   ：\033[41;37m https://www.flyzy2005.com \033[0m"
+        echo -e "flyzy小站技术支持   ：\033[41;37m https://www.flyzy2005.com \033[0m"
+        echo -e "欢迎访问39hope.com   ：\033[41;37m https://www.39hope.com \033[0m"
         get_ss_link
 }
 
