@@ -332,7 +332,7 @@ download_files() {
 generate_config() {
     cat > /etc/shadowsocks.json<<-EOF
 {
-    "server":"0.0.0.0",
+    "server":"::",
     "server_port":$2,
     "local_address":"127.0.0.1",
     "local_port":1080,
@@ -444,7 +444,7 @@ install() {
                 exit 1
         fi      
         echo -e "[${green}成功${plain}] 安装成功尽情冲浪！"
-        echo -e "你的服务器地址（IP）：\033[41;37m $(get_ip) \033[0m"
+        echo -e "你的服务器地址（IPv4）：\033[41;37m $(get_ip) \033[0m"
         echo -e "你的密码            ：\033[41;37m ${password} \033[0m"
         echo -e "你的端口            ：\033[41;37m ${port} \033[0m"
         echo -e "你的加密方式        ：\033[41;37m aes-256-cfb \033[0m"
@@ -471,7 +471,7 @@ get_ss_link(){
         exit 1
     fi
     local tmp=$(echo -n "`get_config_value method`:`get_config_value password`@`get_ip`:`get_config_value server_port`" | base64 -w0)
-    echo -e "你的ss链接：\033[41;37m ss://${tmp} \033[0m"
+    echo -e "你的ss链接（IPv4）：\033[41;37m ss://${tmp} \033[0m"
 }
 
 get_config_value(){
